@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>セタレガン（Setaregan）</title>
-<meta name="description" content="ワイの声を聴け。オリジナルのインストと、いろんな曲の編曲を置いています。やさしい版も、ちょっと贅沢な版も。">
+<meta name="description" content="ワイの声を聴け。歌のないオリジナル曲と、いろんな曲の編曲を置いています。">
 <link rel="canonical" href="https://setaregan.net/">
 <link rel="icon" href="icon.png" type="image/png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="セタレガン">
 <meta property="og:title" content="セタレガン（Setaregan）">
-<meta property="og:description" content="ワイの声を聴け。オリジナルのインストと、いろんな曲の編曲を置いています。">
+<meta property="og:description" content="ワイの声を聴け。歌のないオリジナル曲と、いろんな曲の編曲を置いています。">
 <meta property="og:url" content="https://setaregan.net/">
 <meta property="og:image" content="https://setaregan.net/ogp.png">
 <meta property="og:locale" content="ja_JP">
@@ -59,9 +59,9 @@ h1{margin:clamp(14px,3vh,26px) 0 0;font-weight:800;font-size:clamp(44px,10.5vw,9
 .fa{font-family:"Vazirmatn",sans-serif;font-weight:300;font-size:clamp(18px,4vw,24px);color:var(--teal);margin-top:.3em;line-height:1.6}
 
 /* ── 2. 一言 ── */
-.voice{max-width:640px;margin:0 auto;padding:clamp(40px,8vh,80px) 20px;text-align:center}
+.voice{max-width:720px;margin:0 auto;padding:clamp(40px,8vh,80px) 20px;text-align:center}
 .voice .say{font-weight:800;font-size:clamp(30px,7vw,52px);line-height:1.35;color:var(--coral);letter-spacing:.06em;margin:0}
-.voice p{margin:1.2em auto 0;font-size:clamp(16px,3.8vw,19px);font-weight:500;color:var(--ink-soft);max-width:28em}
+.voice p{word-break:auto-phrase;margin:1.2em auto 0;font-size:clamp(16px,3.8vw,19px);font-weight:500;color:var(--ink-soft);max-width:36em}
 
 /* ── 3. タイルの壁：編曲のかたち ── */
 .wall-sec{padding:clamp(24px,5vh,48px) 16px clamp(48px,8vh,88px)}
@@ -87,6 +87,7 @@ h1{margin:clamp(14px,3vh,26px) 0 0;font-weight:800;font-size:clamp(44px,10.5vw,9
 @media (max-width:560px){.links{grid-template-columns:1fr;gap:4px}.links a{grid-template-columns:84px 1fr;justify-items:start;align-items:center;text-align:left;padding:10px 6px}.links .disc{width:80px;height:80px}}
 
 @media (max-width:340px){.tile p{white-space:normal;word-break:auto-phrase}}
+.sp{display:none}@media (max-width:560px){.sp{display:inline}}
 footer{text-align:center;padding:10px 16px 36px;color:var(--ink-soft);font-family:"Cinzel",serif;font-size:13px;letter-spacing:.2em}
 @media (prefers-reduced-motion:reduce){.medal .spin,.medal .petal{animation:none}.links .disc{transition:none}html{scroll-behavior:auto}}
 </style>
@@ -108,7 +109,7 @@ footer{text-align:center;padding:10px 16px 36px;color:var(--ink-soft);font-famil
   <main>
     <section class="voice">
       <p class="say">ワイの声を聴け。</p>
-      <p>オリジナルのインストと、いろんな曲の編曲を置いています。<br>やさしい版も、ちょっと贅沢な版も。</p>
+      <p>歌のないオリジナル曲と、<br class="sp">いろんな曲の編曲を置いています。</p>
     </section>
 
     <section class="wall-sec" aria-labelledby="wall-h">
