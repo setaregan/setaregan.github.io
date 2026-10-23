@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セタレガン（Setaregan）</title>
+<meta name="description" content="ワイの声を聴け。オリジナルのインストと、いろんな曲の編曲を置いています。やさしい版も、ちょっと贅沢な版も。">
+<link rel="canonical" href="https://setaregan.net/">
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="セタレガン">
+<meta property="og:title" content="セタレガン（Setaregan）">
+<meta property="og:description" content="ワイの声を聴け。オリジナルのインストと、いろんな曲の編曲を置いています。">
+<meta property="og:url" content="https://setaregan.net/">
+<meta property="og:image" content="https://setaregan.net/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Setaregan_jp">
+<meta name="theme-color" content="#EEF3FA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Shippori+Mincho+B1:wght@500;700;800&family=Vazirmatn:wght@300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#EEF3FA;        /* 地：ごく淡い水色 */
+  --mint:#CDEBE6;       /* タイル：ミント */
+  --peri:#C9D4F1;       /* タイル：藤がかった青 */
+  --blush:#F6D3CB;      /* タイル：淡い珊瑚 */
+  --butter:#F6E6BE;     /* タイル：バター */
+  --ivory:#FBF7EE;
+  --ink:#1F2F6B;        /* 文字：深い瑠璃 */
+  --ink-soft:#4A5785;
+  --coral:#C9553F;      /* 一言だけに使う珊瑚 */
+  --teal:#2C9C95;
+  --gold:#C9A25C;
+  --grout:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.95}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:4px;border-radius:6px}
+#lattice{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.wrap{position:relative;z-index:1}
+
+/* 帯（フリーズ）：タイルの縁取りのように区切る */
+.frieze{display:block;width:100%;height:46px}
+
+/* ── 1. 表紙：大きなロゼットのメダリオン ── */
+.hero{display:grid;justify-items:center;text-align:center;padding:clamp(28px,6vh,64px) 16px clamp(36px,6vh,64px)}
+.medal{width:min(78vw,400px);aspect-ratio:1;filter:drop-shadow(0 18px 30px rgba(60,80,140,.18))}
+.medal .spin{transform-origin:200px 200px;animation:spin 140s linear infinite}
+.medal .petal{transform-box:fill-box;transform-origin:center;animation:bloom .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bloom{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+h1{margin:clamp(14px,3vh,26px) 0 0;font-weight:800;font-size:clamp(44px,10.5vw,96px);letter-spacing:.16em;padding-left:.16em;line-height:1.1;white-space:nowrap;color:var(--ink)}
+.latin{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(15px,3.2vw,22px);letter-spacing:.38em;padding-left:.38em;color:#A07A2E;margin-top:.55em}
+.fa{font-family:"Vazirmatn",sans-serif;font-weight:300;font-size:clamp(18px,4vw,24px);color:var(--teal);margin-top:.3em;line-height:1.6}
+
+/* ── 2. 一言 ── */
+.voice{max-width:640px;margin:0 auto;padding:clamp(40px,8vh,80px) 20px;text-align:center}
+.voice .say{font-weight:800;font-size:clamp(30px,7vw,52px);line-height:1.35;color:var(--coral);letter-spacing:.06em;margin:0}
+.voice p{margin:1.2em auto 0;font-size:clamp(16px,3.8vw,19px);font-weight:500;color:var(--ink-soft);max-width:28em}
+
+/* ── 3. タイルの壁：編曲のかたち ── */
+.wall-sec{padding:clamp(24px,5vh,48px) 16px clamp(48px,8vh,88px)}
+.wall-sec h2,.listen h2{margin:0 auto clamp(20px,4vh,32px);text-align:center;font-weight:700;font-size:clamp(20px,4.6vw,28px);letter-spacing:.14em;padding-left:.14em}
+.wall{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--grout);padding:4px;border-radius:6px;
+  box-shadow:0 0 0 6px var(--ivory),0 0 0 8px var(--gold),0 22px 44px rgba(60,80,140,.16)}
+.tile{position:relative;aspect-ratio:1;overflow:hidden;display:grid;place-items:center;text-align:center;padding:16% 10%;word-break:keep-all}
+.tile svg.corners{position:absolute;inset:0;width:100%;height:100%}
+.tile .in{position:relative}
+.tile h3{margin:0;font-weight:800;font-size:clamp(15px,1.9vw,19px);line-height:1.45;color:var(--ink)}
+.tile p{margin:.6em 0 0;white-space:nowrap;font-size:clamp(12.5px,1.45vw,14px);line-height:1.75;color:var(--ink-soft);font-weight:500}
+.t-mint{background:var(--mint)} .t-peri{background:var(--peri)} .t-blush{background:var(--blush)} .t-butter{background:var(--butter)}
+@media (max-width:760px){.wall{grid-template-columns:repeat(2,1fr)}.tile{aspect-ratio:auto;min-height:190px;padding:34px 8px}.tile h3{font-size:clamp(15px,4.2vw,18px)}.tile p{font-size:clamp(11px,3.3vw,14px);letter-spacing:0}}
+
+/* ── 4. きく・みる ── */
+.listen{padding:clamp(24px,5vh,40px) 16px clamp(48px,8vh,80px)}
+.links{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,3vw,28px)}
+.links a{display:grid;justify-items:center;gap:10px;text-decoration:none;padding:22px 10px 20px;text-align:center}
+.links .disc{width:118px;height:118px;transition:transform .25s ease}
+.links a:hover .disc,.links a:focus-visible .disc{transform:rotate(22.5deg) scale(1.04)}
+.links .name{font-weight:800;font-size:19px;line-height:1.3}
+.links .sub{font-size:13.5px;color:var(--ink-soft);font-weight:500;line-height:1.5}
+@media (max-width:560px){.links{grid-template-columns:1fr;gap:4px}.links a{grid-template-columns:84px 1fr;justify-items:start;align-items:center;text-align:left;padding:10px 6px}.links .disc{width:80px;height:80px}}
+
+@media (max-width:340px){.tile p{white-space:normal;word-break:auto-phrase}}
+footer{text-align:center;padding:10px 16px 36px;color:var(--ink-soft);font-family:"Cinzel",serif;font-size:13px;letter-spacing:.2em}
+@media (prefers-reduced-motion:reduce){.medal .spin,.medal .petal{animation:none}.links .disc{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg id="lattice" aria-hidden="true"></svg>
+<div class="wrap">
+  <svg class="frieze" id="friezeTop" aria-hidden="true" preserveAspectRatio="none"></svg>
+
+  <header class="hero">
+    <svg class="medal" id="medal" viewBox="0 0 400 400" role="img" aria-label="花のロゼットの紋様"></svg>
+    <h1>セタレガン</h1>
+    <div class="latin">Setaregan</div>
+    <div class="fa" lang="fa" dir="rtl">ستارگان</div>
+  </header>
+
+  <svg class="frieze" id="friezeMid" aria-hidden="true" preserveAspectRatio="none"></svg>
+
+  <main>
+    <section class="voice">
+      <p class="say">ワイの声を聴け。</p>
+      <p>オリジナルのインストと、いろんな曲の編曲を置いています。<br>やさしい版も、ちょっと贅沢な版も。</p>
+    </section>
+
+    <section class="wall-sec" aria-labelledby="wall-h">
+      <h2 id="wall-h">ここで聴けるもの</h2>
+      <div class="wall" id="wall">
+        <div class="tile t-mint"><div class="in"><h3>オリジナル曲</h3><p>歌のない<br>書きおろし</p></div></div>
+        <div class="tile t-blush"><div class="in"><h3>おきがえ</h3><p>同じ原曲を<br>編成を変えて</p></div></div>
+        <div class="tile t-peri"><div class="in"><h3>もちかえ</h3><p>さまざまな楽器で<br>旋律を歌う</p></div></div>
+        <div class="tile t-butter"><div class="in"><h3>やさしいピアノ</h3><p>雰囲気はそのままに<br>はじめての人にも</p></div></div>
+        <div class="tile t-butter"><div class="in"><h3>ほどよいピアノ</h3><p>楽しく かっこよく<br>品よく 美しく</p></div></div>
+        <div class="tile t-peri"><div class="in"><h3>オマージュ</h3><p>クラシックの作曲家たちに<br>敬意をこめて</p></div></div>
+        <div class="tile t-blush"><div class="in"><h3>メドレー</h3><p>つながりのある曲を<br>ひと続きに</p></div></div>
+        <div class="tile t-mint"><div class="in"><h3>音源の聴き比べ</h3><p>同じ曲を<br>いろいろな音源で</p></div></div>
+      </div>
+    </section>
+
+    <section class="listen" aria-labelledby="listen-h">
+      <h2 id="listen-h">きく・みる</h2>
+      <nav class="links">
+        <a href="https://www.youtube.com/@Setaregan_jp" target="_blank" rel="noopener"><svg class="disc" data-c="#F6D3CB" data-k="#C9553F" data-icon="play" viewBox="0 0 120 120" aria-hidden="true"></svg><span><span class="name">YouTube</span><br><span class="sub">動画で見る</span></span></a>
+        <a href="https://www.nicovideo.jp/user/145741778" target="_blank" rel="noopener"><svg class="disc" data-c="#CDEBE6" data-k="#2C9C95" data-icon="tv" viewBox="0 0 120 120" aria-hidden="true"></svg><span><span class="name">ニコニコ</span><br><span class="sub">コメントと一緒に見る</span></span></a>
+        <a href="https://x.com/Setaregan_jp" target="_blank" rel="noopener"><svg class="disc" data-c="#C9D4F1" data-k="#1F2F6B" data-icon="x" viewBox="0 0 120 120" aria-hidden="true"></svg><span><span class="name">X</span><br><span class="sub">新しい投稿のお知らせ</span></span></a>
+      </nav>
+    </section>
+  </main>
+
+  <svg class="frieze" id="friezeBottom" aria-hidden="true" preserveAspectRatio="none"></svg>
+  <footer>© 2026 Setaregan</footer>
+</div>
+
+<script>
+// セタレガン：タイル風の装飾（宗教的な図柄・六芒星・八芒の星形・三日月・アーチは使わない）
+window.TILE = (function () {
+  const K = { cobalt: '#1E3A8A', cobaltD: '#14286A', turq: '#2FA9A6', turqL: '#7ED3CB', coral: '#D2553F', gold: '#D9A441', goldL: '#F1D08A', ivory: '#F8F2E4', green: '#2E6B4F', white: '#FBF8F1' };
+  const f = n => n.toFixed(1);
+  // 花のロゼット（花びらは曲線の葉形。直線の星形にはしない）
+  function rosette(cx, cy, r, petals, cOuter, cInner, cCore, rot) {
+    rot = rot || 0; let s = '';
+    for (let i = 0; i < petals; i++) {
+      const a = rot + i * 360 / petals;
+      s += `<path transform="translate(${f(cx)},${f(cy)}) rotate(${f(a)})" d="M0,0 C${f(r * .32)},${f(-r * .28)} ${f(r * .30)},${f(-r * .78)} 0,${f(-r)} C${f(-r * .30)},${f(-r * .78)} ${f(-r * .32)},${f(-r * .28)} 0,0Z" fill="${cOuter}"/>`;
+      s += `<path transform="translate(${f(cx)},${f(cy)}) rotate(${f(a)})" d="M0,${f(-r * .18)} C${f(r * .14)},${f(-r * .34)} ${f(r * .13)},${f(-r * .62)} 0,${f(-r * .74)} C${f(-r * .13)},${f(-r * .62)} ${f(-r * .14)},${f(-r * .34)} 0,${f(-r * .18)}Z" fill="${cInner}"/>`;
+    }
+    s += `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(r * .2)}" fill="${cCore}"/>`;
+    s += `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(r * .09)}" fill="${K.goldL}"/>`;
+    return s;
+  }
+  // 小さな4弁の花（つなぎ目に置く）
+  function bud(cx, cy, r, c1, c2) {
+    let s = '';
+    for (let i = 0; i < 4; i++) s += `<ellipse cx="${f(cx)}" cy="${f(cy - r * .5)}" rx="${f(r * .28)}" ry="${f(r * .5)}" transform="rotate(${45 + i * 90} ${f(cx)} ${f(cy)})" fill="${c1}"/>`;
+    s += `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(r * .2)}" fill="${c2}"/>`;
+    return s;
+  }
+  // 縦長のきらめき（星の光）
+  function glint(x, y, r, c, op) {
+    const w = r * .13, h = r * .55;
+    return `<path d="M${f(x)},${f(y - r)} Q${f(x + w)},${f(y - w)} ${f(x + h)},${f(y)} Q${f(x + w)},${f(y + w)} ${f(x)},${f(y + r)} Q${f(x - w)},${f(y + w)} ${f(x - h)},${f(y)} Q${f(x - w)},${f(y - w)} ${f(x)},${f(y - r)}Z" fill="${c}" opacity="${op == null ? 1 : op}"/>`;
+  }
+  // オジー格子（オスマンの織物・タイルによくある波形の格子）
+  function ogee(W, H, P, A, opt) {
+    opt = opt || {}; let lines = '', motifs = '';
+    const rowH = 2 * A * 1.0, rows = Math.ceil(H / rowH) + 3;
+    for (let k = -2; k < rows; k++) {
+      let d = '';
+      for (let x = -P; x <= W + P; x += 6) {
+        const y = k * rowH + A * Math.sin(2 * Math.PI * x / P + k * Math.PI);
+        d += (d ? 'L' : 'M') + f(x) + ',' + f(y);
+      }
+      lines += `<path d="${d}" fill="none" stroke="${opt.line2 || K.white}" stroke-width="${(opt.lw || 10) + 6}" opacity="${opt.op2 || .9}"/>`;
+      lines += `<path d="${d}" fill="none" stroke="${opt.line || K.turq}" stroke-width="${opt.lw || 10}"/>`;
+      lines += `<path d="${d}" fill="none" stroke="${opt.line3 || K.gold}" stroke-width="${(opt.lw || 10) * .22}"/>`;
+      // セルの中心（波k の谷と 波k+1 の山がそろう位置）
+      const x0 = (k % 2 === 0) ? 3 * P / 4 : P / 4;
+      for (let n = -1; n * P + x0 < W + P; n++) {
+        const cx = n * P + x0, cy = k * rowH + rowH / 2;
+        const alt = ((n + k) % 2 + 2) % 2;
+        const Q = opt.pal || {};
+        motifs += rosette(cx, cy, A * .78, 8, alt ? (Q.coral || K.coral) : (Q.turqL || K.turqL), alt ? (Q.white || K.white) : (Q.cobalt || K.cobalt), alt ? (Q.cobalt || K.cobalt) : (Q.coral || K.coral), 22.5);
+        motifs += rosette(cx, cy, A * .36, 8, Q.white || K.white, alt ? (Q.turq || K.turq) : (Q.coral || K.coral), Q.gold || K.gold, 0);
+        // 波が触れ合う点に小花と金のきらめき
+        const tx = n * P + x0 + P / 2, ty = k * rowH + rowH / 2;
+        motifs += bud(tx, ty, A * .42, (opt.pal && opt.pal.goldL) || K.goldL, (opt.pal && opt.pal.coral) || K.coral);
+      }
+    }
+    return lines + motifs;
+  }
+  // 縁がぎざぎざ（花弁状）の楕円メダリオン
+  function medallion(cx, cy, rx, ry, lobes, amp) {
+    let d = '';
+    for (let i = 0; i <= 720; i++) {
+      const t = i / 720 * 2 * Math.PI, m = 1 + amp * Math.pow(Math.abs(Math.cos(lobes * t / 2)), 0.6);
+      d += (i ? 'L' : 'M') + f(cx + rx * m * Math.cos(t)) + ',' + f(cy + ry * m * Math.sin(t));
+    }
+    return d + 'Z';
+  }
+  return { K, rosette, bud, glint, ogee, medallion };
+})();
+
+(function(){
+  const {rosette,glint,bud,ogee,medallion}=TILE;
+  const P={mint:'#CDEBE6',mintD:'#8FD0C6',peri:'#C9D4F1',periD:'#93A6DE',blush:'#F6D3CB',blushD:'#EC9F8E',butter:'#F6E6BE',butterD:'#E9C77F',white:'#FFFFFF',ink:'#1F2F6B',coral:'#C9553F',teal:'#2C9C95',gold:'#C9A25C'};
+
+  // 背景の淡い格子
+  function lattice(){
+    const W=innerWidth,H=innerHeight,s=Math.max(.6,Math.min(1,W/1200)),svg=document.getElementById('lattice');
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    svg.innerHTML=ogee(W,H,Math.round(230*s),Math.round(64*s),{lw:Math.max(3,5*s),line:'#D6EAE7',line2:'#FFFFFF',line3:'#F1E2BF',op2:.9,
+      pal:{coral:'#F6D3CB',turqL:'#D6EEEA',white:'#FFFFFF',cobalt:'#D3DCF3',turq:'#BFE3DD',gold:'#F1DDA9',goldL:'#F6E6BE'}});
+  }
+
+  // 帯：ロゼットと小花を交互に並べた縁取り
+  function frieze(id){
+    const svg=document.getElementById(id),W=Math.max(320,svg.clientWidth||innerWidth),H=46;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    let s=`<rect width="${W}" height="${H}" fill="${P.ivory||'#FBF7EE'}"/><rect y="0" width="${W}" height="4" fill="${P.gold}"/><rect y="${H-4}" width="${W}" height="4" fill="${P.gold}"/>`;
+    s+=`<rect y="6" width="${W}" height="2" fill="${P.mintD}"/><rect y="${H-8}" width="${W}" height="2" fill="${P.mintD}"/>`;
+    const step=56,n=Math.ceil(W/step)+1,off=(W%step)/2;
+    for(let i=0;i<n;i++){const x=off+i*step;
+      if(i%2===0) s+=rosette(x,H/2,15,8,P.blushD,P.white,P.ink,22.5);
+      else s+=bud(x,H/2,16,P.mintD,P.coral);
+    }
+    svg.innerHTML=s;
+  }
+
+  // 表紙のメダリオン（外側の輪だけ、ごくゆっくり回る）
+  function medal(){
+    const c=200;let s='';
+    s+=`<g class="spin"><path d="${medallion(c,c,186,186,16,.07)}" fill="${P.gold}"/><path d="${medallion(c,c,178,178,16,.07)}" fill="${P.white}"/><path d="${medallion(c,c,170,170,16,.07)}" fill="${P.peri}"/>`;
+    for(let i=0;i<48;i++){const t=i/48*2*Math.PI;s+=`<circle cx="${(c+160*Math.cos(t)).toFixed(1)}" cy="${(c+160*Math.sin(t)).toFixed(1)}" r="${i%2?2.6:3.6}" fill="${i%2?P.coral:P.white}"/>`;}
+    for(let i=0;i<8;i++){const t=(i+.5)/8*2*Math.PI;s+=bud(c+132*Math.cos(t),c+132*Math.sin(t),26,P.butterD,P.coral);}
+    s+=`</g>`;
+    s+=`<circle cx="${c}" cy="${c}" r="148" fill="none" stroke="${P.gold}" stroke-width="1.5"/>`;
+    s+=`<circle cx="${c}" cy="${c}" r="112" fill="${P.ivory||'#FBF7EE'}"/>`;
+    const layers=[[110,8,P.mintD,P.white,P.coral,0],[74,8,P.blushD,P.white,P.ink,22.5],[44,8,P.white,P.teal,P.gold,0]];
+    layers.forEach((L,i)=>{s+=`<g class="petal" style="animation-delay:${.15+i*.18}s">${rosette(c,c,L[0],L[1],L[2],L[3],L[4],L[5])}</g>`;});
+    s+=`<g class="petal" style="animation-delay:.75s">${glint(c,c,34,P.gold)}</g>`;
+    document.getElementById('medal').innerHTML=s;
+  }
+
+  // タイルの角に4分の1のロゼットを置く（隣のタイルと合わさって花がひとつになる）
+  function tiles(){
+    document.querySelectorAll('#wall .tile').forEach(t=>{
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox','0 0 200 200');svg.setAttribute('class','corners');svg.setAttribute('aria-hidden','true');svg.setAttribute('preserveAspectRatio','none');
+      let s='';
+      [[0,0],[200,0],[0,200],[200,200]].forEach(([x,y])=>{s+=rosette(x,y,36,8,P.white,'#AEBDE8',P.coral,22.5);s+=`<circle cx="${x}" cy="${y}" r="7" fill="${P.gold}"/>`;});
+      [[100,0],[0,100],[200,100],[100,200]].forEach(([x,y])=>{s+=bud(x,y,16,P.white,P.blushD);});
+      
+      svg.innerHTML=s;t.prepend(svg);
+    });
+  }
+
+  // 「きく・みる」の円い紋
+  function discs(){
+    document.querySelectorAll('.disc').forEach(d=>{
+      const c=d.dataset.c,k=d.dataset.k;let s='';
+      s+=`<path d="${medallion(60,60,56,56,12,.08)}" fill="${P.gold}"/><path d="${medallion(60,60,52,52,12,.08)}" fill="${P.white}"/><path d="${medallion(60,60,48,48,12,.08)}" fill="${c}"/>`;
+      for(let i=0;i<12;i++){const t=i/12*2*Math.PI;s+=`<circle cx="${(60+41*Math.cos(t)).toFixed(1)}" cy="${(60+41*Math.sin(t)).toFixed(1)}" r="2.4" fill="${P.white}"/>`;}
+      s+=`<circle cx="60" cy="60" r="29" fill="${k}"/>`;
+      if(d.dataset.icon==='play') s+=`<path d="M53 47 L72 60 L53 73Z" fill="#fff"/>`;
+      if(d.dataset.icon==='tv') s+=`<rect x="44" y="52" width="32" height="22" rx="6" fill="#fff"/><path d="M52 44 L60 51 L68 44" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="53" cy="63" r="2.6" fill="${k}"/><circle cx="67" cy="63" r="2.6" fill="${k}"/>`;
+      if(d.dataset.icon==='x') s+=`<path d="M50 50 L70 70 M70 50 L50 70" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`;
+      d.innerHTML=s;
+    });
+  }
+
+  lattice();['friezeTop','friezeMid','friezeBottom'].forEach(frieze);medal();tiles();discs();
+  let tm;addEventListener('resize',()=>{clearTimeout(tm);tm=setTimeout(()=>{lattice();['friezeTop','friezeMid','friezeBottom'].forEach(frieze);},150);});
+})();
+</script>
+</body>
+</html>
